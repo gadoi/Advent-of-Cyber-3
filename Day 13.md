@@ -1,6 +1,7 @@
 Day 13
 
 systeminfo | findstr /B /C: "OS Name"
+
 Host Name:                 THE-GRINCH-HACK
 OS Name:                   Microsoft Windows Server 2019 Datacenter
 OS Version:                10.0.17763 N/A Build 17763
@@ -9,6 +10,7 @@ OS Configuration:          Standalone Server
 OS Build Type:             Multiprocessor Free
 BIOS Version:              Xen 4.2.amazon, 8/24/2006
                                  Connection Name: Ethernet
+
 
 wmic service list | findstr "Running" >1.txt
 
