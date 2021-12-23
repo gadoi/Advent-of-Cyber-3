@@ -1,0 +1,41 @@
+Day 23
+
+
+- What command was executed as Elf McNealy to add a new user to the machine?
+Invoke-Nightmare
+
+- What user executed the PowerShell file to send the password.txt file from the administrator's desktop to a remote server?
+adm1n
+
+
+- What was the IP address of the remote server? What was the port used for the remote connection? (format: IP,Port)
+10.10.148.96,4321
+
+- What was the encryption key used to encrypt the contents of the text file sent to the remote server?
+j3pn50vkw21hhurbqmxjlpmo9doiukyb
+
+
+- What application was used to delete the password.txt file?
+sdelete.exe
+
+
+- What is the date and timestamp the logs show that password.txt was deleted? (format: MM/DD/YYYY H:MM:SS PM)
+11/11/2021 7:29:27 PM
+
+- What were the contents of the deleted password.txt file?
+
+change $key and encrypted
+
+decrypt.ps1
+$key = (New-Object System.Text.ASCIIEncoding).GetBytes("j3pn50vkw21hhurbqmxjlpmo9doiukyb")
+
+$encrypted = "76492d1116743f0423413b16050a5345MgB8AEcAVwB1AFMATwB1ADgALwA0AGQAKwBSAEYAYQBHAE8ANgBHAG0AcQBnAHcAPQA9AHwAMwBlADAAYwBmADAAYQAzAGEANgBmADkAZQA0ADUAMABiADkANgA4ADcAZgA3ADAAMQA3ADAAOABiADkAZAA2ADgAOQA2ADAANQA3AGEAZAA4AGMANQBjADIAMAA4ADYAYQA0ADMAMABkADkAMwBiADUAYQBhADIANwA5AGMAYQA1ADYAYQAzAGEAYQA2ADUAMABjADAAMwAzADYANABlADYAOAA4ADQAYwAxAGMAYwAxADkANwBiADIANAAzADMAMAAzADgAYQA5ADYANAAzADEANAA2AGUAZgBkAGEAMAA3ADcANQAyADcAZgBlADMAZQA3ADUANwAyADkAZAAwAGUAOQA5ADQAOQA1AGQAYQBkADEANQAxADYANwA2AGIAYQBjADAAMQA0AGEAOQA3ADYAYgBkAGMAOAAxAGMAZgA2ADYAOABjADEAMABmADcAZgAyADcAZgBjADEAYgA3AGYAOAA3AGIANQAyAGUAMwA4ADgAYQAxADkANgA4ADMA"
+
+echo $encrypted | ConvertTo-SecureString -key $key | ForEach-Object {[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($_))}
+
+run ./decrypt.ps1
+Mission Control: letitsnowletitsnowletitsnow
+
+
+
+https://github.com/calebstewart/CVE-2021-1675
